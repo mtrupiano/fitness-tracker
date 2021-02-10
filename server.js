@@ -58,7 +58,7 @@ async function seed() {
   });
 }
 
-seed();
+// seed();
 
 // Routes
 
@@ -70,7 +70,7 @@ app.post("/workout", ({body}, res) => {
     res.json(result);
   }).catch( (err) => {
     res.status(500).json(err);
-  })
+  });
 });
 
 // Load home page with all workout plans

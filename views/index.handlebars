@@ -7,7 +7,7 @@
 
             <li class="card" style="margin: 10px; padding: 10px;">
                 <span class="workout-name">{{name}}</span>
-            {{#if exercises}}
+
             <ul id="exercise-list-{{_id}}" class="">
             {{#each exercises}}
                 <li class="card exercise-card">
@@ -63,8 +63,8 @@
                     </div>
                 </li>
             </ul>
-            {{/if}}
-                <button class="btn red delete-workout-btn" data-id={{_id}}>DELETE WORKOUT</button>
+
+            <button class="btn red delete-workout-btn" data-id={{_id}}>DELETE WORKOUT</button>
             </li>
 
         {{/each}}
