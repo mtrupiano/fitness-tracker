@@ -60,7 +60,17 @@ async function seed() {
 
 // seed();
 
-// Routes
+// ---- Routes ----
+// Load home page with all workout plans
+app.get("/home", ({body}, res) => {
+  db.Workout.find({}).lean().populate('exercises')
+    .then( (workout) => {
+      res.render('index', { workout });
+    })
+    .catch( ({message}) => {
+      console.log(message);
+    });
+});
 
 // Route to create a new workout plan
 app.post("/workout", ({body}, res) => {
@@ -73,16 +83,6 @@ app.post("/workout", ({body}, res) => {
   });
 });
 
-// Load home page with all workout plans
-app.get("/workout", ({body}, res) => {
-  db.Workout.find({}).lean().populate('exercises')
-    .then( (workout) => {
-      res.render('index', { workout });
-    })
-    .catch( ({message}) => {
-      console.log(message);
-    });
-});
 
 // Route to create a new exercise and add it to a workout
 app.post('/exercise', ({body}, res) => {
