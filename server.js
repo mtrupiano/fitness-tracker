@@ -49,7 +49,7 @@ async function seed() {
   }));
   
   db.Workout.create({
-    name: "My second workout",
+    name: "My first workout",
     exercises: exercises
   }).then( (workout) => {
     console.log(workout);
@@ -58,7 +58,7 @@ async function seed() {
   });
 }
 
-// seed();
+seed();
 
 // Routes
 
