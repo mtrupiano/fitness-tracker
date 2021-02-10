@@ -1,7 +1,5 @@
 $( () => {
     $('.modal').modal();
-
-
     
     // Handle adding an exercise from the form in each workout plan list
     $('.new-exercise-add').on('click', (event) => {
@@ -27,7 +25,7 @@ $( () => {
             alert(err.responseText);
         })
     });
-    
+
     // Disable the weight, sets, and reps entries on the new exercise
     // form if the exercise type is cardio
     $('.new-exercise-type').on('input', (event) => {

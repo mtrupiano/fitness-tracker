@@ -23,10 +23,23 @@
     <nav>
         <div class="nav-wrapper valign-wrapper">
             <span class="brand-logo center">Fitness Tracker</span>
-            <button class="btn" style="right: 0;">ADD WORKOUT</button>
+            <a href="#new-workout-modal" class="btn modal-trigger" style="right: 0;">ADD WORKOUT</a>
         </div>
     </nav>
     {{{body}}}
 </body>
 
 </html>
+
+<div id="new-workout-modal" class="modal" style="width: 50%">
+    <div class="modal-content">
+        <h4>New Workout Plan</h4>
+        <div class="input-field">
+            <input type="text" id="new-workout-name-input" placeholder="Enter the workout plan's name">
+        </div>
+        <div class="modal-footer">
+            <button class="btn">ADD</button>
+            <button class="btn modal-close">CANCEL</button>
+        </div>
+    </div>
+</div>

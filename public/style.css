@@ -18,19 +18,19 @@
     font-weight: bold;
 }
 
-input:not([type]), 
-input[type=text]:not(.browser-default), 
-input[type=password]:not(.browser-default), 
-input[type=email]:not(.browser-default), 
-input[type=url]:not(.browser-default), 
-input[type=time]:not(.browser-default), 
-input[type=date]:not(.browser-default), 
-input[type=datetime]:not(.browser-default), 
-input[type=datetime-local]:not(.browser-default), 
-input[type=tel]:not(.browser-default), 
-input[type=number]:not(.browser-default), 
-input[type=search]:not(.browser-default), 
-textarea.materialize-textarea {
+.exercise-card input:not([type]), 
+.exercise-card input[type=text]:not(.browser-default), 
+.exercise-card input[type=password]:not(.browser-default), 
+.exercise-card input[type=email]:not(.browser-default), 
+.exercise-card input[type=url]:not(.browser-default), 
+.exercise-card input[type=time]:not(.browser-default), 
+.exercise-card input[type=date]:not(.browser-default), 
+.exercise-card input[type=datetime]:not(.browser-default), 
+.exercise-card input[type=datetime-local]:not(.browser-default), 
+.exercise-card input[type=tel]:not(.browser-default), 
+.exercise-card input[type=number]:not(.browser-default), 
+.exercise-card input[type=search]:not(.browser-default), 
+.exercise-card textarea.materialize-textarea {
     font-size: 12px;
     height: 2rem
 }
