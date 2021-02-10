@@ -27,12 +27,13 @@ $( () => {
         const weight = $(`#new-exercise-for-workout-${workoutID}-weight`).val();
         const sets = $(`#new-exercise-for-workout-${workoutID}-sets`).val();
         const reps = $(`#new-exercise-for-workout-${workoutID}-reps`).val();
+        const duration = $(`#new-exercise-for-workout-${workoutID}-duration`).val();
         
         $.ajax({
             url: '/exercise',
             method: 'POST',
             data: {
-                name, type, weight, sets, reps, workoutID
+                name, type, weight, sets, reps, duration, workoutID
             }
         }).then( (res) => {
             location.reload();
