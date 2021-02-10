@@ -40,6 +40,7 @@ $( () => {
         })
     });
 
+    // Handle deleting an exercise
     $('.delete-exercise-btn').on('click', (event) => {
         const target = $(event.target);
         const id = target.attr('data-id');
@@ -53,7 +54,7 @@ $( () => {
         })
     });
 
-
+    // Handle deleting a workout plan
     $('.delete-workout-btn').on('click', (event) => {
         const target = $(event.target);
         const id = target.attr('data-id');

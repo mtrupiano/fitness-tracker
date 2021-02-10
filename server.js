@@ -77,8 +77,6 @@ app.post("/workout", ({body}, res) => {
 app.get("/workout", ({body}, res) => {
   db.Workout.find({}).lean().populate('exercises')
     .then( (workout) => {
-      // console.log(workout);
-      // res.json(workout);
       res.render('index', { workout });
     })
     .catch( ({message}) => {
