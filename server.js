@@ -86,18 +86,28 @@ app.post("/workout", ({body}, res) => {
 
 // Route to create a new exercise and add it to a workout
 app.post('/exercise', ({body}, res) => {
-  db.Exercise.create(body)
-    .then( ({_id}) => {
-      const filter = body.workoutID;
-      db.Workout.findByIdAndUpdate(filter, 
-        { $push: { exercises: _id } }, (err, docs) => {
 
-        }).then(() => {return})
-    }).then( (result) => {
-      res.json(result);
-    }).catch( (err) => {
-      res.status(500).json(err);
-    });
+  const createParams = {
+    name: body.name,
+    type: body.type,
+    sets: body.sets,
+    weight: body.weight,
+    reps: body.reps,
+    duration: body.duration
+  };
+
+  db.Exercise.create(createParams)
+    .then( (createResult) => {
+      db.Workout.findOneAndUpdate({ '_id': body.workoutID }, 
+        { $push: { exercises: createResult._id } },
+        { useFindAndModify: false })
+        .then( (findResult) => {
+          res.json([createResult, findResult]);
+        })
+        .catch( (err) => {
+          res.status(500).json(err);
+        });
+    })
 });
 
 // Delete an exercise
