@@ -1,6 +1,7 @@
 $( () => {
     $('.modal').modal();
 
+    // Handle submitting a new workout
     $('#submit-new-workout-btn').on('click', (event) => {
         $.ajax({
             url: '/workout',
@@ -12,7 +13,7 @@ $( () => {
             location.reload();
         }).fail( (err) => {
             alert(err.responseText);
-        })
+        });
     });
     
     // Handle adding an exercise from the form in each workout plan list
@@ -40,6 +41,24 @@ $( () => {
         })
     });
 
+    // Handle clearing the new exercise form
+    $('.new-exercise-clear').on('click', (event) => {
+        const target = $(event.target);
+        const workoutID = target.attr('data-workout-id');
+
+        $(`#new-exercise-for-workout-${workoutID}-name`).val('');
+        $(`#new-exercise-for-workout-${workoutID}-type`).val('');
+        $(`#new-exercise-for-workout-${workoutID}-weight`).val('');
+        $(`#new-exercise-for-workout-${workoutID}-sets`).val('');
+        $(`#new-exercise-for-workout-${workoutID}-reps`).val('');
+        $(`#new-exercise-for-workout-${workoutID}-duration`).val('');
+
+        $(`#new-exercise-for-workout-${workoutID}-weight`).prop('disabled', false);
+        $(`#new-exercise-for-workout-${workoutID}-sets`).prop('disabled', false);
+        $(`#new-exercise-for-workout-${workoutID}-reps`).prop('disabled', false);
+        $(`#new-exercise-for-workout-${workoutID}-duration`).prop('disabled', true);
+    });
+
     // Disable the weight, sets, and reps entries on the new exercise
     // form if the exercise type is cardio
     $('.new-exercise-type').on('input', (event) => {
@@ -50,6 +69,13 @@ $( () => {
             $(`#new-exercise-for-workout-${workoutID}-weight`).prop('disabled', true);
             $(`#new-exercise-for-workout-${workoutID}-sets`).prop('disabled', true);
             $(`#new-exercise-for-workout-${workoutID}-reps`).prop('disabled', true);
+            $(`#new-exercise-for-workout-${workoutID}-duration`).prop('disabled', false);
+        } else {
+            $(`#new-exercise-for-workout-${workoutID}-duration`).val('');
+            $(`#new-exercise-for-workout-${workoutID}-weight`).prop('disabled', false);
+            $(`#new-exercise-for-workout-${workoutID}-sets`).prop('disabled', false);
+            $(`#new-exercise-for-workout-${workoutID}-reps`).prop('disabled', false);
+            $(`#new-exercise-for-workout-${workoutID}-duration`).prop('disabled', true);
         }
     });
 

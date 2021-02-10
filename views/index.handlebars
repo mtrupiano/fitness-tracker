@@ -57,9 +57,14 @@
                         <input id="new-exercise-for-workout-{{_id}}-reps" 
                             class="new-exercise-reps" placeholder="Reps" type="number">
                     </div>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input disabled id="new-exercise-for-workout-{{_id}}-duration" 
+                            class="new-exercise-duration" placeholder="Duration (only for cardio)" type="number">
+                    </div>
                     <div class="row center-align">
                         <a class="btn new-exercise-add" data-workout-id={{_id}}>Add</a>
-                        <a class="btn red new-exercise-clear">Clear</a>
+                        <a class="btn red new-exercise-clear" data-workout-id={{_id}}>Clear</a>
                     </div>
                 </li>
             </ul>
