@@ -5,9 +5,11 @@
 }
 #all-workouts-list {
     display: flex !important;
+    flex-wrap: wrap;
 }
+
 #all-workouts-list>li {
-    width: 30%;
+    min-width: 30%;
 }
 
 .exercise-card {

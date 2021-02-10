@@ -73,7 +73,7 @@ app.post("/workout", ({body}, res) => {
   })
 });
 
-// Route to get all workout plans
+// Load home page with all workout plans
 app.get("/workout", ({body}, res) => {
   db.Workout.find({}).lean().populate('exercises')
     .then( (workout) => {

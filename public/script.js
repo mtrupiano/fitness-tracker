@@ -1,5 +1,19 @@
 $( () => {
     $('.modal').modal();
+
+    $('#submit-new-workout-btn').on('click', (event) => {
+        $.ajax({
+            url: '/workout',
+            method: 'POST',
+            data: {
+                name: $('#new-workout-name-input').val().trim()
+            }
+        }).then( (res) => {
+            location.reload();
+        }).fail( (err) => {
+            alert(err.responseText);
+        })
+    });
     
     // Handle adding an exercise from the form in each workout plan list
     $('.new-exercise-add').on('click', (event) => {
