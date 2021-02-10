@@ -1,0 +1,80 @@
+
+
+<div class="row container">
+<div class="col s12">
+    <ul class="display-flex" id="all-workouts-list">
+        {{#each workout}}
+
+            <li class="card" style="margin: 10px; padding: 10px;">
+                <span class="workout-name">{{name}}</span>
+            {{#if exercises}}
+            <ul id="exercise-list-{{_id}}" class="">
+            {{#each exercises}}
+                <li class="card exercise-card">
+                    <span class="title">{{name}}</span>
+                    <p style="padding-left: 10px;">
+                        Type: {{type}}<br/>
+                        {{#if weight}}
+                        Weight: {{weight}}<br>
+                        {{/if}}
+                        {{#if sets}}
+                        Sets: {{sets}}<br>
+                        {{/if}}
+                        {{#if reps}}
+                        Reps: {{reps}}<br>
+                        {{/if}}
+                        {{#if duration}}
+                        Duration: {{duration}}
+                        {{/if}}
+                    </p>
+                    <button class="btn red delete-exercise-btn" data-id="{{_id}}">DELETE</button>
+                </li>
+            {{/each}}
+                <li class="card exercise-card">
+                    <span class="title">New exercise</span>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input id="new-exercise-for-workout-{{_id}}-name" 
+                            class="new-exercise-name" placeholder="Name" type="text">
+                    </div>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input id="new-exercise-for-workout-{{_id}}-type" 
+                            class="new-exercise-type autocomplete" data-workout-id={{_id}} placeholder="Type" type="text">
+                    </div>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input id="new-exercise-for-workout-{{_id}}-weight" 
+                            class="new-exercise-weight" placeholder="Weight" type="number">
+                    </div>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input id="new-exercise-for-workout-{{_id}}-sets" 
+                            class="new-exercise-sets" placeholder="Sets" type="number">
+                    </div>
+                    <div class="input-field">
+                        <label for=""></label>
+                        <input id="new-exercise-for-workout-{{_id}}-reps" 
+                            class="new-exercise-reps" placeholder="Reps" type="number">
+                    </div>
+                    <div class="row center-align">
+                        <a class="btn new-exercise-add" data-workout-id={{_id}}>Add</a>
+                        <a class="btn red new-exercise-clear">Clear</a>
+                    </div>
+                </li>
+            </ul>
+            {{/if}}
+                <button class="btn red delete-workout-btn" data-id={{_id}}>DELETE WORKOUT</button>
+            </li>
+
+        {{/each}}
+        <li>
+            <a class="btn modal-trigger" href="#new-workout-modal">Add workout</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+<script>
+    $('#new-exercise-for-workout-{{_id}}-type')
+</script>

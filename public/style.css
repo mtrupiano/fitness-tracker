@@ -1,0 +1,42 @@
+
+.workout-name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.exercise-card {
+    padding: 10px;
+    width: 30%;
+}
+
+.title {
+    font-weight: bold;
+}
+
+input:not([type]), 
+input[type=text]:not(.browser-default), 
+input[type=password]:not(.browser-default), 
+input[type=email]:not(.browser-default), 
+input[type=url]:not(.browser-default), 
+input[type=time]:not(.browser-default), 
+input[type=date]:not(.browser-default), 
+input[type=datetime]:not(.browser-default), 
+input[type=datetime-local]:not(.browser-default), 
+input[type=tel]:not(.browser-default), 
+input[type=number]:not(.browser-default), 
+input[type=search]:not(.browser-default), 
+textarea.materialize-textarea {
+    font-size: 12px;
+    height: 2rem
+}
+
+.delete-exercise-btn {
+    font-size: 12px;
+    line-height: 1rem;
+    padding: 5px;
+}
+
+#all-workouts-list>li {
+    margin: 5px;
+    padding: 5px;
+}
